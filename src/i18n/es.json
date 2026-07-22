@@ -1,0 +1,99 @@
+{
+  "meta": {
+    "siteName": "Yoli Orphée",
+    "tagline": "Terapeuta holística · Sanadora emocional · Pintora",
+    "description": "Reiki, conexión intuitiva y terapias de sanación con Yoli Orphée, además de pinturas originales y encargos personalizados.",
+    "email": "yoliorphee@gmail.com",
+    "location": "Granollers, Barcelona"
+  },
+  "nav": {
+    "home": "Inicio",
+    "about": "Sobre mí",
+    "therapies": "Reiki & terapias",
+    "shop": "Tienda de pinturas",
+    "commission": "Encargo",
+    "menuOpen": "Abrir menú",
+    "menuClose": "Cerrar menú",
+    "language": "Idioma"
+  },
+  "footer": {
+    "rights": "Todos los derechos reservados.",
+    "social": "Sígueme",
+    "backToTop": "Volver arriba"
+  },
+  "home": {
+    "eyebrow": "Bienestar & arte",
+    "title": "Un espacio para sanar,\nsentir y crear",
+    "lead": "Soy Yoli Orphée, terapeuta holística y sanadora emocional. Acompaño tu camino hacia la paz interior con Reiki, conexión intuitiva y terapias de sanación — y comparto ese mismo lenguaje a través de la pintura.",
+    "ctaPrimary": "Conoce las terapias",
+    "ctaSecondary": "Ver pinturas",
+    "sections": {
+      "therapiesTitle": "Reiki & terapias",
+      "therapiesText": "Sesiones de Reiki, conexión intuitiva, terapia emocional, lectura de cartas de los Ángeles y sanación de vidas pasadas, adaptadas a tu momento.",
+      "therapiesLink": "Descubrir las terapias",
+      "shopTitle": "Pinturas originales",
+      "shopText": "Piezas únicas pintadas a mano y encargos personalizados, cuando la energía se convierte en color sobre el lienzo.",
+      "shopLink": "Visitar la tienda"
+    }
+  },
+  "about": {
+    "eyebrow": "Sobre mí",
+    "title": "Sobre mí",
+    "paragraphs": [
+      "Soy Yoli Orphée, terapeuta holística y sanadora emocional. Mi pasión por el bienestar y el equilibrio energético me llevó a estudiar técnicas como el Reiki, la meditación y otras terapias de sanación. Mi objetivo es acompañarte en tu camino hacia la paz interior, proporcionando un espacio seguro para sanar, liberar bloqueos emocionales y encontrar claridad.",
+      "Además de Reiki, me especializo en conexiones intuitivas, ofreciendo un espacio de escucha profunda donde puedes explorar tus emociones y obtener guía para tomar decisiones importantes en tu vida.",
+      "Entiendo que cada persona tiene un camino único, y por ello adapto mis sesiones a tus necesidades específicas, sin juicios, de una manera empática y compasiva. No solo trabajamos con la energía, sino también con tu mente y corazón. Si alguna vez has sentido que necesitas un espacio para hablar, reflexionar o hacer preguntas sobre tu vida, también ofrezco sesiones de escucha activa donde puedes compartir lo que sientas, buscar orientación o simplemente liberar pensamientos que te preocupan.",
+      "Cartas de los Ángeles es otro de los recursos que utilizo en mis sesiones. Mediante este método, puedo canalizar mensajes de guía espiritual que te ayudarán a comprender mejor tu situación actual y cómo tomar decisiones alineadas con tu ser interior. Las cartas no solo brindan claridad, sino que también aportan sanación emocional, al permitirte conectar con tu sabiduría interior.",
+      "Además de las terapias energéticas y las cartas, me apasiona ofrecer sesiones de bienestar integral, donde combinamos la sanación física, emocional y espiritual. Quiero ayudarte a sentirte más equilibrado, sereno y en armonía contigo mismo y con el entorno que te rodea.",
+      "Estoy aquí para acompañarte, apoyarte y ofrecerte herramientas para que puedas sanar, crecer y vivir de forma más plena. Si sientes que este es el momento de comenzar tu viaje hacia el bienestar, estaré encantada de ayudarte."
+    ]
+  },
+  "therapies": {
+    "eyebrow": "Reiki & terapias",
+    "title": "Reiki & terapias",
+    "intro": [
+      "A través de las sesiones de Reiki, conecto con tu energía para liberar tensiones, armonizar tu cuerpo y mente, y restaurar el flujo vital de tu ser. Además, ofrezco otros enfoques terapéuticos como la conexión intuitiva, que te permite explorar tu bienestar emocional y alcanzar un estado de equilibrio.",
+      "Mi trabajo no se basa solo en la técnica, sino en la conexión y la comprensión profunda de las necesidades de cada persona. Estoy aquí para ayudarte a sanar de manera holística, sin juicios y con la mayor empatía.",
+      "Si estás buscando una guía para sentirte mejor contigo mismo, tanto a nivel físico como emocional, estoy aquí para acompañarte en ese proceso."
+    ],
+    "listIntro": "Además del Reiki, que es una de las herramientas que más utilizo en mi práctica, también ofrezco otras terapias complementarias que apoyan el proceso de sanación, crecimiento personal y equilibrio emocional. Cada persona es única, por lo que me adapto a tu situación y te ofrezco diversas opciones para que encuentres la que más resuene contigo.",
+    "list": [
+      {
+        "name": "Conexión intuitiva",
+        "description": "Esta terapia está centrada en escucharte de manera profunda y sin juicios."
+      },
+      {
+        "name": "Terapia emocional",
+        "description": "Las emociones son poderosas, pero a veces podemos sentir que nos sobrepasan. Trabajamos juntas para comprenderlas y soltarlas."
+      },
+      {
+        "name": "Lectura de cartas de los Ángeles",
+        "description": "Las cartas de los Ángeles son una herramienta poderosa que utilizo en sesiones para canalizar mensajes espirituales y dar claridad a quienes buscan respuestas."
+      },
+      {
+        "name": "Sanación de vidas pasadas",
+        "description": "Para quienes sienten que sus bloqueos emocionales y patrones repetitivos pueden tener origen en experiencias de vidas pasadas."
+      }
+    ]
+  },
+  "shop": {
+    "eyebrow": "Pinturas",
+    "title": "Tienda de pinturas",
+    "noticeTitle": "Próximamente nuevas piezas",
+    "notice": "Actualmente no hay disponibles pinturas ni dibujos para la venta. ¡Pronto encontrarás nuevas piezas únicas! Si deseas realizar un encargo personalizado, no dudes en contactarme.",
+    "ctaCommission": "Solicitar un encargo",
+    "galleryTitle": "Trabajos recientes"
+  },
+  "commission": {
+    "eyebrow": "Encargo personalizado",
+    "title": "Encarga tu pieza",
+    "intro": "Cuéntame qué tienes en mente — tamaño, colores, inspiración — y te responderé con los detalles y el presupuesto.",
+    "form": {
+      "name": "Nombre",
+      "email": "Correo electrónico",
+      "size": "Tamaño aproximado",
+      "message": "Cuéntame tu idea",
+      "submit": "Enviar solicitud"
+    }
+  }
+}

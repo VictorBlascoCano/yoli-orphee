@@ -1,0 +1,26 @@
+---
+import type { Painting } from '../data/paintings'
+import type { Locale } from '../i18n/config'
+
+interface Props {
+  painting: Painting
+  lang: Locale
+}
+const { painting, lang } = Astro.props
+---
+
+<figure
+  class='group overflow-hidden rounded-xl border border-ink/10 bg-paper-dim/60'
+>
+  <div class='aspect-4/5 overflow-hidden'>
+    <img
+      src={painting.image}
+      alt={painting.caption[lang]}
+      loading='lazy'
+      class='h-full w-full object-cover transition-transform duration-500 group-hover:scale-105'
+    />
+  </div>
+  <figcaption class='p-4 text-sm text-ink-soft'>
+    {painting.caption[lang]}
+  </figcaption>
+</figure>

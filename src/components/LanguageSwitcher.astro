@@ -1,0 +1,35 @@
+---
+import { type Locale } from "../i18n/config";
+import { getAlternatePaths } from "../i18n/utils";
+import type { RouteKey } from "../i18n/config";
+
+interface Props {
+  lang: Locale;
+  routeKey?: RouteKey;
+  label: string;
+}
+const { lang, routeKey, label } = Astro.props;
+const alternates = getAlternatePaths(lang, routeKey);
+---
+
+<nav aria-label={label} class="flex items-center gap-1 font-mono text-xs tracking-wide uppercase">
+  {
+    alternates.map(({ lang: altLang, href }, i) => (
+      <>
+        {i > 0 && <span class="text-ink-soft/40" aria-hidden="true">/</span>}
+        <a
+          href={href}
+          aria-current={altLang === lang ? "page" : undefined}
+          class:list={[
+            "px-1.5 py-1 rounded transition-colors",
+            altLang === lang
+              ? "text-plum font-semibold"
+              : "text-ink-soft hover:text-ink",
+          ]}
+        >
+          {altLang}
+        </a>
+      </>
+    ))
+  }
+</nav>

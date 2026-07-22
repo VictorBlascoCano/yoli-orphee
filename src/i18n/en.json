@@ -1,0 +1,99 @@
+{
+  "meta": {
+    "siteName": "Yoli Orphée",
+    "tagline": "Holistic therapist · Emotional healer · Painter",
+    "description": "Reiki, intuitive connection and healing therapies with Yoli Orphée, plus original paintings and custom commissions.",
+    "email": "yoliorphee@gmail.com",
+    "location": "Granollers, Barcelona"
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About me",
+    "therapies": "Reiki & therapies",
+    "shop": "Painting shop",
+    "commission": "Commission",
+    "menuOpen": "Open menu",
+    "menuClose": "Close menu",
+    "language": "Language"
+  },
+  "footer": {
+    "rights": "All rights reserved.",
+    "social": "Follow along",
+    "backToTop": "Back to top"
+  },
+  "home": {
+    "eyebrow": "Wellness & art",
+    "title": "A space to heal,\nfeel and create",
+    "lead": "I'm Yoli Orphée, a holistic therapist and emotional healer. I accompany your journey toward inner peace through Reiki, intuitive connection and healing therapies — and I speak that same language through painting.",
+    "ctaPrimary": "Explore the therapies",
+    "ctaSecondary": "See the paintings",
+    "sections": {
+      "therapiesTitle": "Reiki & therapies",
+      "therapiesText": "Reiki sessions, intuitive connection, emotional therapy, Angel card readings and past-life healing, adapted to where you are right now.",
+      "therapiesLink": "Discover the therapies",
+      "shopTitle": "Original paintings",
+      "shopText": "Unique hand-painted pieces and custom commissions, when energy becomes colour on the canvas.",
+      "shopLink": "Visit the shop"
+    }
+  },
+  "about": {
+    "eyebrow": "About me",
+    "title": "About me",
+    "paragraphs": [
+      "I'm Yoli Orphée, a holistic therapist and emotional healer. My passion for wellbeing and energetic balance led me to study techniques such as Reiki, meditation and other healing therapies. My goal is to accompany you on your path toward inner peace, offering a safe space to heal, release emotional blocks and find clarity.",
+      "Alongside Reiki, I specialise in intuitive connection, offering a space of deep listening where you can explore your emotions and find guidance for the important decisions in your life.",
+      "I understand that every person walks a unique path, so I adapt each session to your specific needs, without judgement, with empathy and compassion. We don't just work with energy, but with your mind and heart too. If you've ever felt you need a space to talk, reflect or ask questions about your life, I also offer active-listening sessions where you can share what you feel, seek guidance, or simply release the thoughts that weigh on you.",
+      "Angel Card readings are another resource I use in sessions. Through this method, I can channel messages of spiritual guidance to help you better understand your current situation and how to make decisions aligned with your inner self. The cards don't just bring clarity — they also support emotional healing by helping you connect with your inner wisdom.",
+      "Beyond energy therapies and card readings, I love offering holistic wellbeing sessions that combine physical, emotional and spiritual healing. I want to help you feel more balanced, calm and in harmony with yourself and your surroundings.",
+      "I'm here to accompany you, support you, and offer tools so you can heal, grow and live more fully. If you feel this is the moment to begin your journey toward wellbeing, I'd be delighted to help."
+    ]
+  },
+  "therapies": {
+    "eyebrow": "Reiki & therapies",
+    "title": "Reiki & therapies",
+    "intro": [
+      "Through Reiki sessions, I connect with your energy to release tension, harmonise body and mind, and restore the vital flow of your being. I also offer other therapeutic approaches such as intuitive connection, which lets you explore your emotional wellbeing and reach a state of balance.",
+      "My work isn't only about technique — it's about connection and a deep understanding of each person's needs. I'm here to help you heal holistically, without judgement and with the greatest empathy.",
+      "If you're looking for guidance to feel better in yourself, both physically and emotionally, I'm here to walk that process with you."
+    ],
+    "listIntro": "Alongside Reiki, one of the tools I use most in my practice, I also offer other complementary therapies that support healing, personal growth and emotional balance. Every person is unique, so I adapt to your situation and offer a range of options so you can find what resonates most with you.",
+    "list": [
+      {
+        "name": "Intuitive connection",
+        "description": "A therapy centred on listening to you deeply and without judgement."
+      },
+      {
+        "name": "Emotional therapy",
+        "description": "Emotions are powerful, but sometimes they can feel overwhelming. We work together to understand and release them."
+      },
+      {
+        "name": "Angel Card reading",
+        "description": "Angel Cards are a powerful tool I use in sessions to channel spiritual messages and bring clarity to those seeking answers."
+      },
+      {
+        "name": "Past-life healing",
+        "description": "For those who feel their emotional blocks and recurring patterns may originate in past-life experiences."
+      }
+    ]
+  },
+  "shop": {
+    "eyebrow": "Paintings",
+    "title": "Painting shop",
+    "noticeTitle": "New pieces coming soon",
+    "notice": "There are currently no paintings or drawings available for sale. New unique pieces will be coming soon! If you'd like to request a custom piece, feel free to get in touch.",
+    "ctaCommission": "Request a commission",
+    "galleryTitle": "Recent work"
+  },
+  "commission": {
+    "eyebrow": "Custom commission",
+    "title": "Commission a piece",
+    "intro": "Tell me what you have in mind — size, colours, inspiration — and I'll get back to you with details and a quote.",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "size": "Approximate size",
+      "message": "Tell me your idea",
+      "submit": "Send request"
+    }
+  }
+}

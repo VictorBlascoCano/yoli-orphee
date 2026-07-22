@@ -1,0 +1,79 @@
+---
+import type { Locale, RouteKey } from "../i18n/config";
+import type { Dictionary } from "../i18n/utils";
+import { getHomePath, getRoutePath } from "../i18n/utils";
+import LanguageSwitcher from "./LanguageSwitcher.astro";
+
+interface Props {
+  lang: Locale;
+  dict: Dictionary;
+  active?: RouteKey;
+}
+const { lang, dict, active } = Astro.props;
+
+const navItems: { key: RouteKey; label: string }[] = [
+  { key: "about", label: dict.nav.about },
+  { key: "therapies", label: dict.nav.therapies },
+  { key: "shop", label: dict.nav.shop },
+];
+---
+
+<header class="border-b border-ink/10">
+  <div class="mx-auto max-w-5xl px-6">
+    <div class="flex items-center justify-between py-5">
+      <a
+        href={getHomePath(lang)}
+        class="font-display text-xl tracking-tight text-ink hover:text-plum transition-colors"
+      >
+        {dict.meta.siteName}
+      </a>
+
+      <div class="flex items-center gap-6">
+        <nav class="hidden md:flex items-center gap-8 text-sm" aria-label={dict.nav.home}>
+          {
+            navItems.map((item) => (
+              <a
+                href={getRoutePath(lang, item.key)}
+                aria-current={active === item.key ? "page" : undefined}
+                class:list={[
+                  "transition-colors",
+                  active === item.key
+                    ? "text-plum font-semibold"
+                    : "text-ink-soft hover:text-ink",
+                ]}
+              >
+                {item.label}
+              </a>
+            ))
+          }
+        </nav>
+
+        <LanguageSwitcher lang={lang} routeKey={active} label={dict.nav.language} />
+
+        <details class="md:hidden relative">
+          <summary
+            class="list-none cursor-pointer select-none rounded px-2 py-1 text-sm text-ink-soft [&::-webkit-details-marker]:hidden"
+            aria-label={dict.nav.menuOpen}
+          >
+            <span aria-hidden="true">☰</span>
+          </summary>
+          <nav
+            class="absolute right-0 mt-2 flex w-48 flex-col gap-1 rounded-lg border border-ink/10 bg-paper p-3 shadow-lg z-10"
+            aria-label={dict.nav.home}
+          >
+            {
+              navItems.map((item) => (
+                <a
+                  href={getRoutePath(lang, item.key)}
+                  class="rounded px-2 py-2 text-sm text-ink-soft hover:bg-ink/5 hover:text-ink"
+                >
+                  {item.label}
+                </a>
+              ))
+            }
+          </nav>
+        </details>
+      </div>
+    </div>
+  </div>
+</header>

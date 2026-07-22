@@ -1,0 +1,60 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-display: 'Fraunces', 'Iowan Old Style', serif;
+  --font-body: 'Work Sans', 'Segoe UI', sans-serif;
+  --font-mono: 'Space Mono', ui-monospace, monospace;
+
+  --color-paper: #ede9dd;
+  --color-paper-dim: #e2ddcd;
+  --color-ink: #211f1c;
+  --color-ink-soft: #4a463e;
+  --color-plum: #5f3f56;
+  --color-plum-deep: #402c3a;
+  --color-clay: #5c6b54;
+  --color-quartz: #d9b8ae;
+  --color-quartz-soft: #e9d3cb;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+}
+
+/* Signature brushstroke: hand-drawn feel via a slightly imperfect path,
+   drawn once on load using stroke-dasharray. See BrushDivider.astro */
+.brush-draw path {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: brush-draw 1.1s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
+@keyframes brush-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Visible keyboard focus everywhere */
+:focus-visible {
+  outline: 2px solid var(--color-plum);
+  outline-offset: 3px;
+}

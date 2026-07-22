@@ -1,0 +1,86 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import { getDictionary } from '../i18n/utils'
+import type { Locale } from '../i18n/config'
+
+interface Props {
+  lang: Locale
+}
+const { lang } = Astro.props
+const dict = getDictionary(lang)
+const f = dict.commission.form
+---
+
+<BaseLayout
+  lang={lang}
+  dict={dict}
+  title={dict.commission.title}
+  active='commission'
+>
+  <article class='mx-auto max-w-3xl px-6 py-16 sm:py-24'>
+    <p class='font-mono text-xs uppercase tracking-widest text-plum'>
+      {dict.commission.eyebrow}
+    </p>
+    <h1 class='mt-4 font-display text-4xl text-ink'>{dict.commission.title}</h1>
+    <p class='mt-4 text-lg leading-relaxed text-ink-soft'>
+      {dict.commission.intro}
+    </p>
+
+    <form class='mt-10 space-y-5' method='post' action='#'>
+      <div>
+        <label for='name' class='block text-sm font-medium text-ink'
+          >{f.name}</label
+        >
+        <input
+          id='name'
+          name='name'
+          type='text'
+          required
+          class='mt-1.5 w-full rounded-lg border border-ink/20 bg-paper px-4 py-2.5 text-ink placeholder:text-ink-soft/50 focus:border-plum'
+        />
+      </div>
+      <div>
+        <label for='email' class='block text-sm font-medium text-ink'
+          >{f.email}</label
+        >
+        <input
+          id='email'
+          name='email'
+          type='email'
+          required
+          class='mt-1.5 w-full rounded-lg border border-ink/20 bg-paper px-4 py-2.5 text-ink placeholder:text-ink-soft/50 focus:border-plum'
+        />
+      </div>
+      <div>
+        <label for='size' class='block text-sm font-medium text-ink'
+          >{f.size}</label
+        >
+        <input
+          id='size'
+          name='size'
+          type='text'
+          class='mt-1.5 w-full rounded-lg border border-ink/20 bg-paper px-4 py-2.5 text-ink placeholder:text-ink-soft/50 focus:border-plum'
+        />
+      </div>
+      <div>
+        <label for='message' class='block text-sm font-medium text-ink'
+          >{f.message}</label
+        >
+        <textarea
+          id='message'
+          name='message'
+          rows='5'
+          required
+          class='mt-1.5 w-full rounded-lg border border-ink/20 bg-paper px-4 py-2.5 text-ink placeholder:text-ink-soft/50 focus:border-plum'
+        ></textarea>
+      </div>
+
+      <button
+        type='submit'
+        class='rounded-full bg-ink px-6 py-3 text-sm font-medium text-paper hover:bg-plum-deep transition-colors'
+      >
+        {f.submit}
+      </button>
+    </form>
+  </article>
+</BaseLayout>

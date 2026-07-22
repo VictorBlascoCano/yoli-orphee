@@ -1,0 +1,24 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import { getDictionary } from '../i18n/utils'
+import type { Locale } from '../i18n/config'
+
+interface Props {
+  lang: Locale
+}
+const { lang } = Astro.props
+const dict = getDictionary(lang)
+---
+
+<BaseLayout lang={lang} dict={dict} title={dict.about.title} active='about'>
+  <article class='mx-auto max-w-3xl px-6 py-16 sm:py-24'>
+    <p class='font-mono text-xs uppercase tracking-widest text-plum'>
+      {dict.about.eyebrow}
+    </p>
+    <h1 class='mt-4 font-display text-4xl text-ink'>{dict.about.title}</h1>
+
+    <div class='mt-8 space-y-6 text-lg leading-relaxed text-ink-soft'>
+      {dict.about.paragraphs.map((p) => <p>{p}</p>)}
+    </div>
+  </article>
+</BaseLayout>

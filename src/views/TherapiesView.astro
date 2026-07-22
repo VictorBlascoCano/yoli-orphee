@@ -1,0 +1,42 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import ServiceCard from '../components/ServiceCard.astro'
+import { getDictionary } from '../i18n/utils'
+import type { Locale } from '../i18n/config'
+
+interface Props {
+  lang: Locale
+}
+const { lang } = Astro.props
+const dict = getDictionary(lang)
+---
+
+<BaseLayout
+  lang={lang}
+  dict={dict}
+  title={dict.therapies.title}
+  active='therapies'
+>
+  <article class='mx-auto max-w-3xl px-6 py-16 sm:py-24'>
+    <p class='font-mono text-xs uppercase tracking-widest text-plum'>
+      {dict.therapies.eyebrow}
+    </p>
+    <h1 class='mt-4 font-display text-4xl text-ink'>{dict.therapies.title}</h1>
+
+    <div class='mt-8 space-y-5 text-lg leading-relaxed text-ink-soft max-w-2xl'>
+      {dict.therapies.intro.map((p) => <p>{p}</p>)}
+    </div>
+
+    <p class='mt-12 max-w-2xl text-ink-soft leading-relaxed'>
+      {dict.therapies.listIntro}
+    </p>
+
+    <div class='mt-6 grid gap-4 sm:grid-cols-2'>
+      {
+        dict.therapies.list.map((item) => (
+          <ServiceCard name={item.name} description={item.description} />
+        ))
+      }
+    </div>
+  </article>
+</BaseLayout>

@@ -1,0 +1,61 @@
+---
+import type { Locale, RouteKey } from "../i18n/config";
+import type { Dictionary } from "../i18n/utils";
+import { getAlternatePaths } from "../i18n/utils";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import "../styles/global.css";
+
+interface Props {
+  lang: Locale;
+  dict: Dictionary;
+  title: string;
+  description?: string;
+  active?: RouteKey;
+}
+const { lang, dict, title, description = dict.meta.description, active } = Astro.props;
+const alternates = getAlternatePaths(lang, active);
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="description" content={description} />
+
+    <title>{title} · {dict.meta.siteName}</title>
+
+    <!-- hreflang alternates so search engines know about every language version -->
+    {
+      alternates.map(({ lang: altLang, href }) => (
+        <link rel="alternate" hreflang={altLang} href={new URL(href, Astro.site).toString()} />
+      ))
+    }
+    <link rel="alternate" hreflang="x-default" href={new URL(alternates[0].href, Astro.site).toString()} />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Work+Sans:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="min-h-screen flex flex-col font-body antialiased">
+    <a
+      href="#main"
+      class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:m-3 focus:rounded focus:bg-ink focus:px-4 focus:py-2 focus:text-paper"
+    >
+      {lang === "es" ? "Ir directamente al contenido" : "Skip to content"}
+    </a>
+
+    <Header lang={lang} dict={dict} active={active} />
+
+    <main id="main" class="flex-1">
+      <slot />
+    </main>
+
+    <Footer lang={lang} dict={dict} />
+  </body>
+</html>
