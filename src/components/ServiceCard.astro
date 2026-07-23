@@ -1,12 +1,14 @@
 ---
 interface Props {
-  name: string;
-  description: string;
+  name: string
+  description: string
 }
-const { name, description } = Astro.props;
+const { name, description } = Astro.props
 ---
 
-<article class="rounded-xl border border-ink/10 bg-paper-dim/60 p-6 hover:border-plum/40 transition-colors">
-  <h3 class="font-display text-lg text-ink">{name}</h3>
-  <p class="mt-2 text-sm leading-relaxed text-ink-soft">{description}</p>
+<article
+  class='rounded-xl border border-ink/10 bg-paper-dim/60 p-6 hover:border-plum/40 transition-colors'
+>
+  <h3 class='font-display text-lg text-ink'>{name}</h3>
+  <p class='mt-2 text-sm leading-relaxed text-ink-soft'>{description}</p>
 </article>

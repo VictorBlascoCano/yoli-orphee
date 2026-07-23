@@ -1,24 +1,33 @@
 // @ts-check
-import { defineConfig } from "astro/config";
-import tailwindcss from "@tailwindcss/vite";
+import { defineConfig } from 'astro/config'
+import tailwindcss from '@tailwindcss/vite'
+import sitemap from '@astrojs/sitemap'
 
-// https://docs.astro.build/en/guides/internationalization/
 export default defineConfig({
-  site: "https://yoliorphee.example",
-  trailingSlash: "never",
+  site: 'https://yoli-orphee.vercel.app',
+  trailingSlash: 'never',
+
+  integrations: [
+    sitemap({
+      i18n: {
+        defaultLocale: 'es',
+        locales: { es: 'es', en: 'en' }
+      }
+    })
+  ],
 
   i18n: {
-    locales: ["es", "en"],
-    defaultLocale: "es",
+    locales: ['es', 'en'],
+    defaultLocale: 'es',
     routing: {
       // Spanish (default) lives at the root: /sobre-mi
       // English lives prefixed: /en/about
       prefixDefaultLocale: false,
-      redirectToDefaultLocale: false,
-    },
+      redirectToDefaultLocale: false
+    }
   },
 
   vite: {
-    plugins: [tailwindcss()],
-  },
-});
+    plugins: [tailwindcss()]
+  }
+})

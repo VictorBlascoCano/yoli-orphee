@@ -1,58 +1,127 @@
 ---
-import type { Locale, RouteKey } from "../i18n/config";
-import type { Dictionary } from "../i18n/utils";
-import { getAlternatePaths } from "../i18n/utils";
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
-import "../styles/global.css";
+import type { Locale, RouteKey } from '../i18n/config'
+import type { Dictionary } from '../i18n/utils'
+import { getAlternatePaths } from '../i18n/utils'
+import { social, defaultOgImage } from '../data/site'
+import Header from '../components/Header.astro'
+import Footer from '../components/Footer.astro'
+import '../styles/global.css'
 
 interface Props {
-  lang: Locale;
-  dict: Dictionary;
-  title: string;
-  description?: string;
-  active?: RouteKey;
+  lang: Locale
+  dict: Dictionary
+  title: string
+  description?: string
+  active?: RouteKey
+  image?: string
+  ogType?: 'website' | 'profile'
 }
-const { lang, dict, title, description = dict.meta.description, active } = Astro.props;
-const alternates = getAlternatePaths(lang, active);
+const {
+  lang,
+  dict,
+  title,
+  description = dict.meta.description,
+  active,
+  image = defaultOgImage,
+  ogType = 'website'
+} = Astro.props
+
+const alternates = getAlternatePaths(lang, active)
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site)
+const absoluteImageUrl = new URL(image, Astro.site).toString()
+const ogLocale = { es: 'es_ES', en: 'en_US' } as const
+const pageTitle = `${title} · ${dict.meta.siteName}`
+
+// Minimal Schema.org description of the business, reused across every page.
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  name: dict.meta.siteName,
+  description: dict.meta.description,
+  url: Astro.site?.toString(),
+  image: absoluteImageUrl,
+  sameAs: social.map((s) => s.href)
+}
 ---
 
 <!doctype html>
 <html lang={lang}>
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="description" content={description} />
+    <meta charset='utf-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1' />
+    <meta name='theme-color' content='#211f1c' />
+    <meta name='description' content={description} />
+    <link rel='canonical' href={canonicalUrl.toString()} />
 
-    <title>{title} · {dict.meta.siteName}</title>
+    <link rel='icon' type='image/png' href='/favicon.png' />
+    <link rel='apple-touch-icon' href='/apple-touch-icon.png' />
+
+    <title>{pageTitle}</title>
 
     <!-- hreflang alternates so search engines know about every language version -->
     {
       alternates.map(({ lang: altLang, href }) => (
-        <link rel="alternate" hreflang={altLang} href={new URL(href, Astro.site).toString()} />
+        <link
+          rel='alternate'
+          hreflang={altLang}
+          href={new URL(href, Astro.site).toString()}
+        />
       ))
     }
-    <link rel="alternate" hreflang="x-default" href={new URL(alternates[0].href, Astro.site).toString()} />
-
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Work+Sans:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap"
-      rel="stylesheet"
+      rel='alternate'
+      hreflang='x-default'
+      href={new URL(alternates[0].href, Astro.site).toString()}
+    />
+
+    <!-- Open Graph — this is what WhatsApp, Facebook, LinkedIn, iMessage read for link previews -->
+    <meta property='og:type' content={ogType} />
+    <meta property='og:site_name' content={dict.meta.siteName} />
+    <meta property='og:title' content={pageTitle} />
+    <meta property='og:description' content={description} />
+    <meta property='og:url' content={canonicalUrl.toString()} />
+    <meta property='og:image' content={absoluteImageUrl} />
+    <meta property='og:image:width' content='1200' />
+    <meta property='og:image:height' content='630' />
+    <meta property='og:image:alt' content={dict.meta.tagline} />
+    <meta property='og:locale' content={ogLocale[lang]} />
+    {
+      alternates
+        .filter((a) => a.lang !== lang)
+        .map((a) => (
+          <meta property='og:locale:alternate' content={ogLocale[a.lang]} />
+        ))
+    }
+
+    <!-- Twitter/X card (falls back to the Open Graph tags above, but title/description are explicit for clarity) -->
+    <meta name='twitter:card' content='summary_large_image' />
+    <meta name='twitter:title' content={pageTitle} />
+    <meta name='twitter:description' content={description} />
+    <meta name='twitter:image' content={absoluteImageUrl} />
+
+    <script
+      type='application/ld+json'
+      set:html={JSON.stringify(structuredData)}
+    />
+
+    <link rel='preconnect' href='https://fonts.googleapis.com' />
+    <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
+    <link
+      href='https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Work+Sans:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap'
+      rel='stylesheet'
     />
   </head>
-  <body class="min-h-screen flex flex-col font-body antialiased">
+  <body class='min-h-screen flex flex-col font-body antialiased'>
     <a
-      href="#main"
-      class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:m-3 focus:rounded focus:bg-ink focus:px-4 focus:py-2 focus:text-paper"
+      href='#main'
+      class='sr-only focus:not-sr-only focus:absolute focus:z-50 focus:m-3 focus:rounded focus:bg-ink focus:px-4 focus:py-2 focus:text-paper'
     >
-      {lang === "es" ? "Ir directamente al contenido" : "Skip to content"}
+      {lang === 'es' ? 'Ir directamente al contenido' : 'Skip to content'}
     </a>
 
     <Header lang={lang} dict={dict} active={active} />
 
-    <main id="main" class="flex-1">
+    <main id='main' class='flex-1'>
       <slot />
     </main>
 

@@ -10,7 +10,13 @@ const { lang } = Astro.props
 const dict = getDictionary(lang)
 ---
 
-<BaseLayout lang={lang} dict={dict} title={dict.about.title} active='about'>
+<BaseLayout
+  lang={lang}
+  dict={dict}
+  title={dict.about.title}
+  active='about'
+  ogType='profile'
+>
   <article class='mx-auto max-w-3xl px-6 py-16 sm:py-24'>
     <p class='font-mono text-xs uppercase tracking-widest text-plum'>
       {dict.about.eyebrow}

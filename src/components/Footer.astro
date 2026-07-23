@@ -1,6 +1,8 @@
 ---
 import type { Locale } from '../i18n/config'
 import type { Dictionary } from '../i18n/utils'
+import { social as socials } from '../data/site'
+import { email, location } from '../data/site'
 
 interface Props {
   lang: Locale
@@ -8,15 +10,6 @@ interface Props {
 }
 const { dict } = Astro.props
 const year = new Date().getFullYear()
-
-const email = "yoliorphee@gmail.com"
-const location = "Granollers, Barcelona"
-
-const socials = [
-  { label: 'Instagram', href: 'https://www.instagram.com/yoliorphee' },
-  { label: 'TikTok', href: 'https://www.tiktok.com/@yoliorphee' }
-]
-
 ---
 
 <footer class='border-t border-ink/10'>
@@ -26,7 +19,9 @@ const socials = [
     <div>
       <p class='font-display text-lg text-ink'>{dict.meta.siteName}</p>
       <p class='text-sm text-ink-soft mt-1'>{dict.meta.tagline}</p>
-      <p class='text-sm text-ink-soft mt-1'><a href={"mailto:" + email}>{email}</a> - {location}</p>
+      <p class='text-sm text-ink-soft mt-1'>
+        <a href={'mailto:' + email}>{email}</a> - {location}
+      </p>
     </div>
 
     <div class='flex flex-col gap-2 sm:items-end'>
